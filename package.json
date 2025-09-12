@@ -1,0 +1,39 @@
+{
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"dev": "bun --watch src/index.ts",
+		"start": "bun x drizzle-kit migrate && NODE_ENV=production bun src/index.ts",
+		"lint": "bun x eslint",
+		"lint:fix": "bun lint --fix",
+		"format": "bun prettier . --write",
+		"generate": "bun x drizzle-kit generate",
+		"push": "bun x drizzle-kit push",
+		"migrate": "bun x drizzle-kit migrate",
+		"studio": "bun x drizzle-kit studio",
+		"prepare": "husky"
+	},
+	"dependencies": {
+		"@gramio/autoload": "^1.1.0",
+		"@verrou/core": "^0.5.1",
+		"drizzle-kit": "^0.31.4",
+		"drizzle-orm": "^0.44.5",
+		"env-var": "^7.5.0",
+		"gramio": "^0.4.10"
+	},
+	"devDependencies": {
+		"@0x32/prettier": "^1.0.0",
+		"@antfu/eslint-config": "^5.2.2",
+		"@types/bun": "^1.2.21",
+		"eslint": "^9.35.0",
+		"eslint-plugin-drizzle": "^0.2.3",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.1.6",
+		"prettier": "^3.6.2",
+		"typescript": "^5.9.2"
+	},
+	"lint-staged": {
+		"*.{js,ts}": "bun lint --fix",
+		"*.{js,ts,json}": "bun prettier --write"
+	}
+}
