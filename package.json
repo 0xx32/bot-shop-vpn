@@ -15,11 +15,13 @@
 	},
 	"dependencies": {
 		"@gramio/autoload": "^1.1.0",
+		"@libsql/client": "^0.15.15",
 		"@verrou/core": "^0.5.1",
 		"drizzle-kit": "^0.31.4",
 		"drizzle-orm": "^0.44.5",
 		"env-var": "^7.5.0",
-		"gramio": "^0.4.10"
+		"gramio": "^0.4.10",
+		"postgres": "^3.4.7"
 	},
 	"devDependencies": {
 		"@0x32/prettier": "^1.0.0",
