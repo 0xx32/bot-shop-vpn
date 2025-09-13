@@ -15,6 +15,7 @@
 	},
 	"dependencies": {
 		"@gramio/autoload": "^1.1.0",
+		"@gramio/scenes": "^0.3.4",
 		"@libsql/client": "^0.15.15",
 		"@verrou/core": "^0.5.1",
 		"drizzle-kit": "^0.31.4",
