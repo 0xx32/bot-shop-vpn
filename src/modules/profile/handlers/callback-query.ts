@@ -16,7 +16,10 @@ export default (bot: BotType) => {
 			ctx.answerCallbackQuery()
 
 			const user = (
-				await db.select().from(usersTable).where(eq(usersTable.telegramID, ctx.from.id.toString()))
+				await db
+					.select()
+					.from(usersTable)
+					.where(eq(usersTable.telegramID, ctx.from.id.toString()))
 			).at(0)
 
 			if (!user) {

@@ -2,8 +2,10 @@ import { autoload } from '@gramio/autoload'
 import { scenes } from '@gramio/scenes'
 import { Bot } from 'gramio'
 
+import { buyScene } from '@/modules/buy'
+import { profileScenes } from '@/modules/profile'
+
 import { config } from './config'
-import { profileScenes } from './modules/profile'
 
 export const bot = new Bot(config.BOT_TOKEN)
 	.extend(
@@ -22,7 +24,7 @@ export const bot = new Bot(config.BOT_TOKEN)
 			skipImportErrors: true,
 		})
 	)
-	.extend(scenes([...profileScenes]))
+	.extend(scenes([...profileScenes, buyScene]))
 	.onStart(({ info }) => console.log(`✨ Bot ${info.username} was started!`))
 
 export type BotType = typeof bot

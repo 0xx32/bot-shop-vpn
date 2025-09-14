@@ -17,6 +17,8 @@ const subscriptions = pgTable('subscriptions_table', {
 		.references(() => users.id),
 })
 
+export type UserType = typeof users.$inferSelect
+
 export { subscriptions as subscriptionsTable, users as usersTable }
 
 //RELATIONS
