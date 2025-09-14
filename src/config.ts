@@ -9,4 +9,5 @@ export const config = {
 
 	DATABASE_URL: env.get('DATABASE_URL').required().asString(),
 	LOCK_STORE: env.get('LOCK_STORE').default('memory').asEnum(['memory']),
+	CRYPTO_PAY_APP_TOKEN: env.get('CRYPTO_PAY_APP_TOKEN').required().asString(),
 }

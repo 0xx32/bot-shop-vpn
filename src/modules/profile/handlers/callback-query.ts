@@ -35,6 +35,14 @@ export default (bot: BotType) => {
 		.callbackQuery(profileCallbackData.topupBalance, async (ctx) => {
 			ctx.answerCallbackQuery()
 
-			ctx.scene.enter(topupBalanceScene)
+			const user = await db.query.usersTable.findFirst({
+				where: eq(usersTable.telegramID, ctx.from.id.toString()),
+			})
+
+			if (!user) {
+				return ctx.send('Пользователь не найден')
+			}
+
+			ctx.scene.enter(topupBalanceScene, user)
 		})
 }

@@ -22,6 +22,7 @@
 		"drizzle-orm": "^0.44.5",
 		"env-var": "^7.5.0",
 		"gramio": "^0.4.10",
+		"ky": "^1.10.0",
 		"postgres": "^3.4.7"
 	},
 	"devDependencies": {
