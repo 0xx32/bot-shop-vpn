@@ -2,9 +2,11 @@ import { eq } from 'drizzle-orm'
 
 import type { BotType } from '@/bot'
 
+import { config } from '@/config'
 import { db } from '@/db'
 import { usersTable } from '@/db/schemes'
 import { configTable } from '@/db/schemes/config'
+import { LztPay } from '@/services/lolz-pay/client'
 import { mainKeyboard } from '@/shared/keyboards'
 import { START_MESSAGE } from '@/utils/constants/messages'
 
@@ -56,5 +58,25 @@ export default (bot: BotType) => {
 			})
 
 			return ctx.send('Конфиг добавлен')
+		})
+		.command('test', async (ctx) => {
+			const lolzAPi = new LztPay()
+
+			const invoice = await lolzAPi.createInvoice({
+				params: {
+					amount: 1,
+					currency: 'RUB',
+					payment_id: '44',
+					comment: 'Test',
+					url_success: 'https://google.com',
+					url_callback: config.LOLZ_CALLBACK_URL,
+					merchant_id: +config.LOLZ_MERCHANT_ID,
+					is_test: false,
+				},
+			})
+
+			console.log(invoice.data)
+
+			ctx.send(invoice.data)
 		})
 }
